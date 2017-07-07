@@ -8,6 +8,7 @@ $conn.Password = "p@ssw0rd"
 $conn.ServerInstance = "STATBSPDB" 
 
 $srv = new-object Microsoft.SqlServer.Management.Smo.Server($conn) 
+'SQL Server Information:'
 $srv | select Name, Edition, BuildNumber, Product, ProductLevel, Version, Processors, PhysicalMemory, DefaultFile, DefaultLog, MasterDBPath, MasterDBLogPath, BackupDirectory, ServiceAccount 
 
 #$db = $srv.Databases["master"] 
