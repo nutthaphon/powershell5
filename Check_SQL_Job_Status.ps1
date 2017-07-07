@@ -13,7 +13,8 @@ $srv | select Name, Edition, BuildNumber, Product, ProductLevel, Version, Proces
 $db = $srv.Databases["master"] 
  
 $result = $db.ExecuteWithResults("SELECT DB_NAME() as [Database]") 
-$result.Tables[0] 
- 
+#$result.Tables[0] 
+
+'Status of SQL Jobs'
 $srv.JobServer.Jobs | Where-Object {$_.IsEnabled -eq $TRUE} | Select Name,LastRunOutcome, LastRunDate,IsEnabled
  
