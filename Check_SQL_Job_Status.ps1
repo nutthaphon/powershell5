@@ -10,11 +10,11 @@ $conn.ServerInstance = "STATBSPDB"
 $srv = new-object Microsoft.SqlServer.Management.Smo.Server($conn) 
 $srv | select Name, Edition, BuildNumber, Product, ProductLevel, Version, Processors, PhysicalMemory, DefaultFile, DefaultLog, MasterDBPath, MasterDBLogPath, BackupDirectory, ServiceAccount 
 
-$db = $srv.Databases["master"] 
+#$db = $srv.Databases["master"] 
  
-$result = $db.ExecuteWithResults("SELECT DB_NAME() as [Database]") 
+#$result = $db.ExecuteWithResults("SELECT DB_NAME() as [Database]") 
 #$result.Tables[0] 
 
-'Status of SQL Jobs'
+'Status of SQL Jobs:'
 $srv.JobServer.Jobs | Where-Object {$_.IsEnabled -eq $TRUE} | Select Name,LastRunOutcome, LastRunDate,IsEnabled
  
